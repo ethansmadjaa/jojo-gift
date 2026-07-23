@@ -15,20 +15,25 @@ export type PaletteName =
  * (italique serif + rose pâle en partie 1).
  */
 export type Slide =
-  /** Partie 1 — photo plein écran, ambiance cinéma. */
-  | { kind: 'cinema'; id: string; image: string; title?: string; lines: string[] }
-  /** Partie 1 — grille de plusieurs photos. */
+  /** Partie 1 — photo(s) plein écran, ambiance cinéma ; plusieurs photos = fondu enchaîné. */
+  | { kind: 'cinema'; id: string; images: string[]; title?: string; lines: string[] }
+  /** Partie 1 — grille de plusieurs photos (au-delà de 5, les cases tournent). */
   | { kind: 'montage'; id: string; images: string[]; lines: string[] }
   /** Fond noir, lignes qui apparaissent une à une, mot final mis en scène. */
   | { kind: 'noir'; id: string; lines: string[]; final?: string; silence?: boolean }
-  /** Partie 2 — style livre pour enfants : fond coloré, grand titre, polaroïd. */
+  /**
+   * Partie 2 — style livre pour enfants : fond coloré, grand titre, polaroïd.
+   * Plusieurs photos = diaporama dans le polaroïd ; aucune photo = grand emoji.
+   */
   | {
       kind: 'chapter'
       id: string
       title: string
       caption?: string
       note?: string
-      image: string
+      images: string[]
+      /** Affiché dans le polaroïd quand la slide n'a pas de photo. */
+      emoji?: string
       palette: PaletteName
     }
   /** Montée de suspense : photo floutée + grand titre. */

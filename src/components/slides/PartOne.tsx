@@ -2,15 +2,16 @@ import { motion, useReducedMotion } from 'framer-motion'
 import type { Slide } from '../../types'
 import { EASE, rich } from '../../lib/motion'
 import { Photo } from '../Photo'
+import { PhotoCycle } from '../PhotoCycle'
 import { Lines } from '../Lines'
 
 type SlideOf<K extends Slide['kind']> = Extract<Slide, { kind: K }>
 
-/** Partie 1 — photo plein écran, dégradé discret, texte ligne par ligne. */
+/** Partie 1 — photo(s) plein écran, dégradé discret, texte ligne par ligne. */
 export function CinemaSlide({ slide, index }: { slide: SlideOf<'cinema'>; index: number }) {
   return (
     <div className="slide slide-cinema">
-      <Photo src={slide.image} zoomOut={index % 2 === 1} parallax />
+      <PhotoCycle images={slide.images} interval={5} zoomSeed={index} parallax />
       <div className="scrim" />
       <div className="cinema-content">
         {slide.title && (
@@ -29,21 +30,30 @@ export function CinemaSlide({ slide, index }: { slide: SlideOf<'cinema'>; index:
   )
 }
 
-/** Partie 1 — mosaïque de souvenirs qui apparaissent une à une. */
+const MONTAGE_CELLS = 5
+
+/**
+ * Partie 1 — mosaïque de souvenirs qui apparaissent une à une.
+ * Au-delà de 5 photos, elles sont réparties dans les 5 cases,
+ * et chaque case fait tourner les siennes en fondu enchaîné.
+ */
 export function MontageSlide({ slide }: { slide: SlideOf<'montage'> }) {
   const reduceMotion = useReducedMotion()
+  const cells = Array.from({ length: MONTAGE_CELLS }, (_, i) =>
+    slide.images.filter((_, j) => j % MONTAGE_CELLS === i),
+  )
   return (
     <div className="slide slide-montage">
       <div className="montage-grid">
-        {slide.images.map((src, i) => (
+        {cells.map((images, i) => (
           <motion.div
-            key={src}
+            key={i}
             className={`montage-cell montage-cell-${i + 1}`}
             initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.94, y: reduceMotion ? 0 : 18 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 + i * 0.22, ease: EASE }}
           >
-            <Photo src={src} zoomOut={i % 2 === 0} />
+            <PhotoCycle images={images} interval={4.5} offset={i * 1.3} zoomSeed={i} />
           </motion.div>
         ))}
       </div>
