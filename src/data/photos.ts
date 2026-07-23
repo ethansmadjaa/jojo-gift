@@ -82,11 +82,17 @@ export const slidePhotos = {
     "/slides/img_9492.jpg",
     "/slides/img_9982.jpg"
   ],
+  "slide12_jojo_maman": [
+    "/slides/img_6006.jpg"
+  ],
   "slide13_jojo_rigole": [
     "/slides/img_2079.jpg",
     "/slides/img_3912.jpg",
     "/slides/img_4991.jpg",
     "/slides/img_9787.jpg"
+  ],
+  "slide14_jojo_ferme": [
+    "/slides/img_5874.jpg"
   ],
   "slide16_jojo_vacances": [
     "/slides/img_2278.jpg",
@@ -104,6 +110,9 @@ export const slidePhotos = {
     "/slides/img_4575.jpg",
     "/slides/img_9868.jpg",
     "/slides/img_9878.jpg"
+  ],
+  "slide19_jojo_sport": [
+    "/slides/img_5291.jpg"
   ],
   "slide20_jojo_fashion": [
     "/slides/137f0741-fbf2-4718-af1f-dc6df1439206.jpg",

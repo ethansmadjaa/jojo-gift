@@ -306,6 +306,11 @@ button {
   background: #f1ece4;
 }
 
+/* Dans le polaroïd, on recadre vers le haut : c'est là que sont les visages. */
+.polaroid-window .photo img {
+  object-position: 50% 28%;
+}
+
 .polaroid-empty {
   position: absolute;
   inset: 0;
