@@ -7,6 +7,7 @@ import { EASE } from '../lib/motion'
 import { BackButton, Counter, Hint, MusicButton, ProgressBar } from './Chrome'
 import { Grain } from './fx/Grain'
 import { MouseLight } from './fx/MouseLight'
+import { RotateOverlay } from './RotateOverlay'
 import { BlackoutSlide, CinemaSlide, FinaleSlide, MontageSlide, NoirSlide } from './slides/PartOne'
 import { ChapterSlide, RevealSlide, TeaseSlide } from './slides/PartTwo'
 import type { Slide } from '../types'
@@ -119,6 +120,7 @@ export function Experience() {
       <MusicButton playing={playing} onToggle={toggle} />
       <BackButton visible={index > 0 && !isEnd} onBack={prev} />
       <Hint visible={index === 0 && !visited} />
+      <RotateOverlay />
     </div>
   )
 }

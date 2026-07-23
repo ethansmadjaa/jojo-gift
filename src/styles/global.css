@@ -701,6 +701,78 @@ button {
   100% { transform: translate(0, 0); }
 }
 
+/* ─────────────── Mode paysage obligatoire sur téléphone ─────────────── */
+
+.rotate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  background: #050506;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  cursor: default;
+}
+
+/* Visible uniquement sur écran tactile tenu en portrait. */
+@media (orientation: portrait) and (hover: none) and (pointer: coarse) {
+  .rotate-overlay {
+    display: flex;
+  }
+}
+
+.rotate-phone {
+  width: 34px;
+  height: 58px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  position: relative;
+  animation: rotate-phone 2.6s var(--ease) infinite;
+}
+
+.rotate-phone-notch {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+@keyframes rotate-phone {
+  0%, 20% { transform: rotate(0deg); }
+  55%, 80% { transform: rotate(90deg); }
+  100% { transform: rotate(90deg); }
+}
+
+.rotate-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.rotate-sub {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotate-phone {
+    animation: none;
+    transform: rotate(90deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .grain,
   .mouse-light {
