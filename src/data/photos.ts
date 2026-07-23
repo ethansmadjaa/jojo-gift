@@ -144,6 +144,9 @@ export const slidePhotos = {
     "/slides/img_9878.jpg",
     "/slides/img_9982.jpg",
     "/slides/cover.jpg"
+  ],
+  "slide24_parapente": [
+    "/slides/parapente.jpg"
   ]
 } as const
 

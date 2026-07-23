@@ -106,7 +106,7 @@ export function Experience() {
           {slide.kind === 'noir' && <NoirSlide slide={slide} />}
           {slide.kind === 'chapter' && <ChapterSlide slide={slide} index={index} />}
           {slide.kind === 'tease' && <TeaseSlide slide={slide} />}
-          {slide.kind === 'reveal' && <RevealSlide />}
+          {slide.kind === 'reveal' && <RevealSlide slide={slide} />}
           {slide.kind === 'finale' && <FinaleSlide slide={slide} />}
           {slide.kind === 'blackout' && <BlackoutSlide onRestart={restart} />}
         </motion.div>
