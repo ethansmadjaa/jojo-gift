@@ -2,8 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { MusicPart } from '../types'
 
 const TRACKS: Record<MusicPart, string> = {
-  one: '/music/part-1.mp3', // partie album — douce, émotionnelle
-  two: '/music/part-2.mp3', // partie livre de Jojo — joyeuse
+  one: '/music/music.mp3', // partie album — douce, émotionnelle
+  two: '/music/music2.mp3', // partie livre de Jojo — joyeuse
 }
 
 const FULL_VOLUME = 0.85
