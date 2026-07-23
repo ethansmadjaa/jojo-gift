@@ -1,77 +1,71 @@
-# React + TypeScript + Vite
+# Joyeux anniversaire ❤️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un mini film interactif : un album cinématographique, puis le livre de Jojo,
+puis la révélation — **Jojo en parapente 🪂**.
 
-Currently, two official plugins are available:
+## Lancer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+(ou `bun install` / `bun dev`)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Personnaliser
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Tout le contenu vit dans **`src/data/slides.ts`** : textes, ordre des slides,
+chemins des photos. Chaque slide y est commentée avec la photo attendue.
 
-```
+### Photos — `/public/photos/`
+
+Nommer les fichiers `001.jpg` → `028.jpg` (le commentaire au-dessus de chaque
+slide dans `slides.ts` décrit la photo attendue) :
+
+| Fichier | Photo |
+| --- | --- |
+| 001 | La plus belle photo d'elle (ouverture) |
+| 002 | Elle qui sourit |
+| 003 | Avec sa famille / ses amis |
+| 004 | Une photo drôle |
+| 005 | Vous deux |
+| 006–010 | Cinq souvenirs (montage) |
+| 011 | Une photo calme |
+| 012 | Jojo travaille |
+| 013 | Jojo avec ses copines |
+| 014 | Jojo au Brésil |
+| 015 | Jojo en Amérique du Sud |
+| 016 | Jojo avec sa maman |
+| 017 | Jojo qui rigole |
+| 018 | Jojo à la ferme |
+| 019 | Jojo à l'Élysée |
+| 020 | Jojo en vacances |
+| 021 | Jojo au soleil |
+| 022 | Jojo sous la pluie |
+| 023 | Jojo partout |
+| 024 | Un paysage de France |
+| 025 | Annecy |
+| 026 | La montagne |
+| 027 | Parapente (floutée automatiquement) |
+| 028 | Votre plus belle photo à deux (finale) |
+
+> ⚠️ Utiliser du **.jpg / .png / .webp** — les fichiers **.HEIC ne s'affichent
+> pas** dans Chrome et Android. Sur Mac : `sips -s format jpeg photo.HEIC --out 001.jpg`.
+
+Tant qu'une photo manque, un dégradé élégant s'affiche à la place — rien ne casse.
+
+### Musique — `/public/music/`
+
+- `part-1.mp3` — partie album (douce, émotionnelle)
+- `part-2.mp3` — partie livre de Jojo (joyeuse)
+
+La musique se lance avec le bouton en haut à droite, continue entre les slides,
+passe en fondu enchaîné d'une partie à l'autre, et baisse pendant les slides noires.
+Si `part-2.mp3` manque, la première piste continue simplement.
+
+## Navigation
+
+- **Clic / tap** : slide suivante
+- **← →**, **espace**, **entrée** : navigation clavier
+- **Balayage** gauche/droite sur mobile
+- Bouton **‹** en bas à gauche : revenir en arrière
