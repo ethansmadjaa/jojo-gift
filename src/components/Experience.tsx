@@ -14,7 +14,7 @@ import type { Slide } from '../types'
 
 function imagesOf(slide: Slide | undefined): string[] {
   if (!slide) return []
-  if (slide.kind === 'montage') return slide.images
+  if ('images' in slide) return slide.images
   return 'image' in slide && slide.image ? [slide.image] : []
 }
 

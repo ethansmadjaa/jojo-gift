@@ -1,35 +1,36 @@
 import type { Slide } from '../types'
+import { photosOf } from './photos'
 
 /**
  * ─────────────────────────────────────────────────────────────
  *  C'EST ICI QUE TOUT SE PERSONNALISE.
  *
- *  Dépose tes photos dans  /public/photos/  avec les noms
- *  ci-dessous (ou change les chemins ici, comme tu préfères).
- *  Le commentaire au-dessus de chaque slide décrit la photo attendue.
+ *  Les photos viennent des dossiers /slides/slideNN_… du dépôt :
+ *  dépose/retire des photos dans un dossier, relance
+ *  `bun scripts/build-photos.mjs`, et la slide suit.
  *
- *  Tant qu'une photo manque, le site affiche un dégradé élégant
- *  à la place — rien ne casse.
+ *  Une slide "chapter" sans photo affiche un grand emoji
+ *  dans le polaroïd — rien ne casse.
  * ─────────────────────────────────────────────────────────────
  */
 
 export const slides: Slide[] = [
   // ───────────────────────── PARTIE 1 — L'album ─────────────────────────
 
-  // 001 — la plus belle photo d'elle (portrait ou paysage, peu importe)
+  // La plus belle photo d'elle.
   {
     kind: 'cinema',
     id: 'ouverture',
-    image: '/photos/001.jpg',
+    images: photosOf('slide01_cover'),
     title: 'Joyeux anniversaire mon amour ❤️',
     lines: ['*21 ans* aujourd’hui.'],
   },
 
-  // 002 — une photo d'elle qui sourit
+  // Elle qui sourit — les photos défilent en fondu enchaîné.
   {
     kind: 'cinema',
     id: 'sourire',
-    image: '/photos/002.jpg',
+    images: photosOf('slide02_21_ans'),
     lines: [
       '*21 ans* que tu souris.',
       '*21 ans* que tu es belle.',
@@ -37,11 +38,11 @@ export const slides: Slide[] = [
     ],
   },
 
-  // 003 — une photo avec sa famille ou ses amis
+  // Elle avec sa famille, ses amis.
   {
     kind: 'cinema',
     id: 'les-gens',
-    image: '/photos/003.jpg',
+    images: photosOf('slide03_aime_les_gens'),
     lines: [
       '*21 ans* que tu aimes les gens plus fort que presque n’importe qui.',
       'Ta famille.',
@@ -50,22 +51,22 @@ export const slides: Slide[] = [
     ],
   },
 
-  // 004 — une photo drôle d'elle
+  // Les photos drôles.
   {
     kind: 'cinema',
     id: 'rabougrie',
-    image: '/photos/004.jpg',
+    images: photosOf('slide04_rabougrie'),
     lines: [
       '*21 ans* que tu es un peu rabougrie.',
       '(Il fallait bien trouver quelque chose.)',
     ],
   },
 
-  // 005 — une belle photo de vous deux
+  // Nous deux.
   {
     kind: 'cinema',
     id: 'nous',
-    image: '/photos/005.jpg',
+    images: photosOf('slide05_notre_histoire'),
     lines: [
       'Moi, ça fait seulement *un an et demi*.',
       '*Un an et demi* que je t’admire.',
@@ -76,17 +77,11 @@ export const slides: Slide[] = [
     ],
   },
 
-  // 006 → 010 — cinq photos de souvenirs (voyages, soirées, fous rires…)
+  // La mosaïque de souvenirs (les cases tournent s'il y a plus de 5 photos).
   {
     kind: 'montage',
     id: 'souvenirs',
-    images: [
-      '/photos/006.jpg',
-      '/photos/007.jpg',
-      '/photos/008.jpg',
-      '/photos/009.jpg',
-      '/photos/010.jpg',
-    ],
+    images: photosOf('slide06_nos_souvenirs'),
     lines: [
       'Merci pour tous nos souvenirs.',
       'Les voyages. Les fous rires. Les soirées. Les embrouilles.',
@@ -94,11 +89,11 @@ export const slides: Slide[] = [
     ],
   },
 
-  // 011 — une photo calme, douce
+  // Une photo calme, douce.
   {
     kind: 'cinema',
     id: 'bonheur',
-    image: '/photos/011.jpg',
+    images: photosOf('slide07_tu_merites'),
     lines: [
       'Tu mérites tout le bonheur du monde.',
       'Vraiment.',
@@ -123,115 +118,143 @@ export const slides: Slide[] = [
 
   // ──────────────── PARTIE 2 — Le livre de Jojo ────────────────
 
-  // 012 — Jojo en train de travailler
   {
     kind: 'chapter',
     id: 'jojo-travaille',
     title: 'Jojo travaille',
     caption: 'Jojo travaille beaucoup.',
-    note: '(Beaucoup trop.)',
-    image: '/photos/012.jpg',
+    note: '(Tellement qu’aucune photo n’a survécu.)',
+    images: [],
+    emoji: '💻',
     palette: 'creme',
   },
 
-  // 013 — Jojo avec ses copines
   {
     kind: 'chapter',
     id: 'jojo-copines',
     title: 'Jojo avec ses copines',
     caption: 'Jojo adore retrouver les gens qu’elle aime.',
-    image: '/photos/013.jpg',
+    images: photosOf('slide09_jojo_copines'),
     palette: 'rose',
   },
 
-  // 014 — Jojo au Brésil
   {
     kind: 'chapter',
     id: 'jojo-bresil',
     title: 'Jojo au Brésil',
-    image: '/photos/014.jpg',
+    images: photosOf('slide10_jojo_bresil'),
     palette: 'soleil',
   },
 
-  // 015 — Jojo en Amérique du Sud
   {
     kind: 'chapter',
     id: 'jojo-amerique-du-sud',
     title: 'Jojo en Amérique du Sud',
-    image: '/photos/015.jpg',
+    images: [],
+    emoji: '🦙',
     palette: 'menthe',
   },
 
-  // 016 — Jojo avec sa maman
   {
     kind: 'chapter',
     id: 'jojo-maman',
     title: 'Jojo avec sa maman',
-    image: '/photos/016.jpg',
+    images: [],
+    emoji: '❤️',
     palette: 'peche',
   },
 
-  // 017 — Jojo qui rigole
   {
     kind: 'chapter',
     id: 'jojo-rigole',
     title: 'Jojo qui rigole',
-    image: '/photos/017.jpg',
+    images: photosOf('slide13_jojo_rigole'),
     palette: 'ciel',
   },
 
-  // 018 — Jojo à la ferme
   {
     kind: 'chapter',
     id: 'jojo-ferme',
     title: 'Jojo à la ferme',
-    image: '/photos/018.jpg',
+    images: [],
+    emoji: '🐄',
     palette: 'menthe',
   },
 
-  // 019 — Jojo à l'Élysée
   {
     kind: 'chapter',
     id: 'jojo-elysee',
     title: 'Jojo à l’Élysée',
-    image: '/photos/019.jpg',
+    images: [],
+    emoji: '🏛️',
     palette: 'lilas',
   },
 
-  // 020 — Jojo en vacances
   {
     kind: 'chapter',
     id: 'jojo-vacances',
     title: 'Jojo en vacances',
-    image: '/photos/020.jpg',
+    images: photosOf('slide16_jojo_vacances'),
     palette: 'corail',
   },
 
-  // 021 — Jojo au soleil
   {
     kind: 'chapter',
     id: 'jojo-soleil',
     title: 'Jojo au soleil',
-    image: '/photos/021.jpg',
+    images: photosOf('slide17_jojo_soleil'),
     palette: 'soleil',
   },
 
-  // 022 — Jojo sous la pluie
   {
     kind: 'chapter',
     id: 'jojo-pluie',
     title: 'Jojo sous la pluie',
-    image: '/photos/022.jpg',
+    images: [],
+    emoji: '☔',
     palette: 'ciel',
   },
 
-  // 023 — n'importe quelle photo de Jojo, n'importe où
+  {
+    kind: 'chapter',
+    id: 'jojo-sport',
+    title: 'Jojo fait du sport',
+    note: '(Si, si, ça arrive.)',
+    images: [],
+    emoji: '🏃‍♀️',
+    palette: 'corail',
+  },
+
+  {
+    kind: 'chapter',
+    id: 'jojo-fashion',
+    title: 'Jojo fashion',
+    images: photosOf('slide20_jojo_fashion'),
+    palette: 'rose',
+  },
+
+  {
+    kind: 'chapter',
+    id: 'jojo-aventure',
+    title: 'Jojo l’aventurière',
+    images: photosOf('slide21_jojo_aventure'),
+    palette: 'menthe',
+  },
+
+  {
+    kind: 'chapter',
+    id: 'jojo-gourmande',
+    title: 'Jojo gourmande',
+    images: photosOf('slide22_jojo_gourmande'),
+    palette: 'peche',
+  },
+
   {
     kind: 'chapter',
     id: 'jojo-partout',
     title: 'Jojo partout',
     caption: 'On peut mettre Jojo partout.',
-    image: '/photos/023.jpg',
+    images: photosOf('slide23_jojo_partout'),
     palette: 'lilas',
   },
 
@@ -246,35 +269,35 @@ export const slides: Slide[] = [
 
   // ───────────────────── La révélation ─────────────────────
 
-  // 024 — un beau paysage de France (ou n'importe quelle photo d'elle en France)
   {
     kind: 'chapter',
     id: 'jojo-france',
     title: 'Jojo en France 🇫🇷',
-    image: '/photos/024.jpg',
+    images: [],
+    emoji: '🇫🇷',
     palette: 'ciel',
   },
 
-  // 025 — une très belle photo d'Annecy
   {
     kind: 'chapter',
     id: 'jojo-annecy',
     title: 'Jojo à Annecy',
-    image: '/photos/025.jpg',
+    images: [],
+    emoji: '⛵',
     palette: 'menthe',
   },
 
-  // 026 — une photo de montagne
   {
     kind: 'chapter',
     id: 'jojo-montagne',
     title: 'Jojo à la montagne',
     caption: 'Ça commence à devenir intéressant…',
-    image: '/photos/026.jpg',
+    images: [],
+    emoji: '🏔️',
     palette: 'creme',
   },
 
-  // 027 — une photo de parapente (elle sera automatiquement floutée)
+  // Photo de parapente floutée (dégradé flouté tant qu'elle n'existe pas).
   {
     kind: 'tease',
     id: 'dans-les-airs',
@@ -282,17 +305,17 @@ export const slides: Slide[] = [
     image: '/photos/027.jpg',
   },
 
-  // La grande slide — confettis + carte d'embarquement (pas de photo nécessaire)
+  // La grande slide — confettis + carte d'embarquement.
   {
     kind: 'reveal',
     id: 'parapente',
   },
 
-  // 028 — votre plus belle photo à deux
+  // Votre plus belle photo à deux (changer le chemin ici si besoin).
   {
     kind: 'finale',
     id: 'finale',
-    image: '/photos/028.jpg',
+    image: '/slides/img_4718.jpg',
     lines: [
       'Joyeux anniversaire mon amour.',
       'Merci de rendre ma vie plus belle chaque jour.',
@@ -308,8 +331,12 @@ export const slides: Slide[] = [
 /** Index de la première slide de la partie 2 (changement de musique). */
 export const PART_TWO_START = slides.findIndex((s) => s.id === 'jojo-travaille')
 
-/** Toutes les images du site, dans l'ordre d'apparition (pour le préchargement). */
-export const allImages: string[] = slides.flatMap((s) => {
-  if (s.kind === 'montage') return s.images
-  return 'image' in s && s.image ? [s.image] : []
-})
+/** Toutes les images du site, dédupliquées, dans l'ordre d'apparition (préchargement). */
+export const allImages: string[] = [
+  ...new Set(
+    slides.flatMap((s) => {
+      if ('images' in s) return s.images
+      return 'image' in s && s.image ? [s.image] : []
+    }),
+  ),
+]

@@ -3,11 +3,15 @@ import type { Slide } from '../../types'
 import { palettes } from '../../data/palettes'
 import { EASE, SPRING } from '../../lib/motion'
 import { Photo } from '../Photo'
+import { PhotoCycle } from '../PhotoCycle'
 import { Confetti } from '../fx/Confetti'
 
 type SlideOf<K extends Slide['kind']> = Extract<Slide, { kind: K }>
 
-/** Partie 2 — chapitre du "livre de Jojo" : fond pastel, titre géant, polaroïd. */
+/**
+ * Partie 2 — chapitre du "livre de Jojo" : fond pastel, titre géant, polaroïd.
+ * Plusieurs photos = diaporama dans le polaroïd ; aucune = grand emoji.
+ */
 export function ChapterSlide({ slide, index }: { slide: SlideOf<'chapter'>; index: number }) {
   const palette = palettes[slide.palette]
   const tilt = index % 2 === 0 ? -2.2 : 2.4
@@ -36,7 +40,15 @@ export function ChapterSlide({ slide, index }: { slide: SlideOf<'chapter'>; inde
         whileHover={{ rotate: 0, scale: 1.02 }}
         transition={{ ...SPRING, delay: 0.3 }}
       >
-        <Photo src={slide.image} className="polaroid-photo" />
+        <div className="polaroid-window">
+          {slide.images.length > 0 ? (
+            <PhotoCycle images={slide.images} interval={3.2} />
+          ) : (
+            <div className="polaroid-empty" style={{ background: palette.bg }}>
+              <span className="polaroid-emoji">{slide.emoji ?? '📷'}</span>
+            </div>
+          )}
+        </div>
       </motion.div>
       {(slide.caption || slide.note) && (
         <motion.div
