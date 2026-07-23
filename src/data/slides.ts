@@ -158,8 +158,7 @@ export const slides: Slide[] = [
     kind: 'chapter',
     id: 'jojo-maman',
     title: 'Jojo avec sa maman',
-    images: [],
-    emoji: '❤️',
+    images: photosOf('slide12_jojo_maman'),
     palette: 'peche',
   },
 
@@ -175,8 +174,7 @@ export const slides: Slide[] = [
     kind: 'chapter',
     id: 'jojo-ferme',
     title: 'Jojo à la ferme',
-    images: [],
-    emoji: '🐄',
+    images: photosOf('slide14_jojo_ferme'),
     palette: 'menthe',
   },
 
@@ -219,8 +217,7 @@ export const slides: Slide[] = [
     id: 'jojo-sport',
     title: 'Jojo fait du sport',
     note: '(Si, si, ça arrive.)',
-    images: [],
-    emoji: '🏃‍♀️',
+    images: photosOf('slide19_jojo_sport'),
     palette: 'corail',
   },
 
