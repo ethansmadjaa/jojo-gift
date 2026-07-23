@@ -82,6 +82,9 @@ export const slidePhotos = {
     "/slides/img_9492.jpg",
     "/slides/img_9982.jpg"
   ],
+  "slide11_jojo_amerique_sud": [
+    "/slides/img_4479.jpg"
+  ],
   "slide12_jojo_maman": [
     "/slides/img_6006.jpg"
   ],
@@ -93,6 +96,9 @@ export const slidePhotos = {
   ],
   "slide14_jojo_ferme": [
     "/slides/img_5874.jpg"
+  ],
+  "slide15_jojo_elysee": [
+    "/slides/img_5875.jpg"
   ],
   "slide16_jojo_vacances": [
     "/slides/img_2278.jpg",

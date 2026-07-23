@@ -149,8 +149,7 @@ export const slides: Slide[] = [
     kind: 'chapter',
     id: 'jojo-amerique-du-sud',
     title: 'Jojo en Amérique du Sud',
-    images: [],
-    emoji: '🦙',
+    images: photosOf('slide11_jojo_amerique_sud'),
     palette: 'menthe',
   },
 
@@ -182,8 +181,7 @@ export const slides: Slide[] = [
     kind: 'chapter',
     id: 'jojo-elysee',
     title: 'Jojo à l’Élysée',
-    images: [],
-    emoji: '🏛️',
+    images: photosOf('slide15_jojo_elysee'),
     palette: 'lilas',
   },
 
