@@ -123,9 +123,8 @@ export const slides: Slide[] = [
     id: 'jojo-travaille',
     title: 'Jojo travaille',
     caption: 'Jojo travaille beaucoup.',
-    note: '(Tellement qu’aucune photo n’a survécu.)',
-    images: [],
-    emoji: '💻',
+    note: '(Beaucoup trop.)',
+    images: photosOf('slide08_jojo_travaille'),
     palette: 'creme',
   },
 
