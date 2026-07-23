@@ -55,6 +55,9 @@ export const slidePhotos = {
     "/slides/img_9878.jpg",
     "/slides/cover.jpg"
   ],
+  "slide08_jojo_travaille": [
+    "/slides/img_5873.jpg"
+  ],
   "slide09_jojo_copines": [
     "/slides/img_1680.jpg"
   ],
