@@ -297,18 +297,19 @@ export const slides: Slide[] = [
     palette: 'creme',
   },
 
-  // Photo de parapente floutée (dégradé flouté tant qu'elle n'existe pas).
+  // La photo de parapente, floutée pour le suspense…
   {
     kind: 'tease',
     id: 'dans-les-airs',
     title: 'Jojo… dans les airs ??',
-    image: '/photos/027.jpg',
+    image: photosOf('slide24_parapente')[0],
   },
 
-  // La grande slide — confettis + carte d'embarquement.
+  // …puis nette derrière les confettis et la carte d'embarquement.
   {
     kind: 'reveal',
     id: 'parapente',
+    image: photosOf('slide24_parapente')[0],
   },
 
   // Votre plus belle photo à deux (changer le chemin ici si besoin).

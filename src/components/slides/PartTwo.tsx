@@ -102,15 +102,22 @@ export function TeaseSlide({ slide }: { slide: SlideOf<'tease'> }) {
   )
 }
 
-/** LA slide — ciel du soir sur le lac, confettis, carte d'embarquement. */
-export function RevealSlide() {
+/** LA slide — la photo de parapente en grand, confettis, carte d'embarquement. */
+export function RevealSlide({ slide }: { slide: SlideOf<'reveal'> }) {
   const title = 'JOJO EN PARAPENTE'
   return (
     <div className="slide slide-reveal">
-      <div className="reveal-sky" aria-hidden>
-        <div className="reveal-sun" />
-        <div className="reveal-mountains" />
-      </div>
+      {slide.image ? (
+        <>
+          <Photo src={slide.image} />
+          <div className="scrim scrim-strong" />
+        </>
+      ) : (
+        <div className="reveal-sky" aria-hidden>
+          <div className="reveal-sun" />
+          <div className="reveal-mountains" />
+        </div>
+      )}
       <Confetti />
       <div className="reveal-content">
         <motion.p
