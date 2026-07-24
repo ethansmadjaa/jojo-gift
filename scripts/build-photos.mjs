@@ -11,6 +11,7 @@
  */
 import { readdir, mkdir, writeFile, readFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import path from 'node:path'
 import sharp from 'sharp'
 import decodeHeic from 'heic-decode'
@@ -28,6 +29,12 @@ const isImage = (f) => /\.(heic|jpe?g|png)$/i.test(f)
 
 /** Nom de sortie web : basename en minuscules, extension .jpg. */
 const webName = (file) => file.replace(/\.[^.]+$/, '').toLowerCase() + '.jpg'
+
+/** Empreinte du contenu d'un fichier, pour distinguer deux photos différentes portant le même nom. */
+async function fileHash(filePath) {
+  const buffer = await readFile(filePath)
+  return createHash('sha1').update(buffer).digest('hex').slice(0, 8)
+}
 
 async function toSharp(filePath) {
   if (!isHeic(filePath)) return sharp(filePath).rotate() // .rotate() = respecte l'EXIF
@@ -53,20 +60,32 @@ await mkdir(OUT_DIR, { recursive: true })
 
 /** @type {Record<string, string[]>} dossier de slide → URLs web */
 const manifest = {}
-const converted = new Set()
+// nom de sortie → hash du fichier source déjà converti sous ce nom
+const converted = new Map()
 
 for (const folder of folders) {
   const files = (await readdir(path.join(SLIDES_DIR, folder))).filter(isImage).sort()
-  manifest[folder] = files.map((f) => `/slides/${webName(f)}`)
+  const outNames = []
   for (const file of files) {
-    const out = webName(file)
+    const srcPath = path.join(SLIDES_DIR, folder, file)
+    let out = webName(file)
+    const hash = await fileHash(srcPath)
+
+    const existingHash = converted.get(out)
+    if (existingHash !== undefined && existingHash !== hash) {
+      // Même nom de fichier (ex. "image.png"), mais photo différente : on évite l'écrasement silencieux.
+      out = `${folder}-${out}`
+    }
+
+    outNames.push(`/slides/${out}`)
     if (converted.has(out)) continue
-    converted.add(out)
+    converted.set(out, hash)
     const outPath = path.join(OUT_DIR, out)
     if (existsSync(outPath)) continue
-    await convert(path.join(SLIDES_DIR, folder, file), outPath)
+    await convert(srcPath, outPath)
     console.log(`✓ ${folder}/${file} → public/slides/${out}`)
   }
+  manifest[folder] = outNames
 }
 
 const ts = `/**
