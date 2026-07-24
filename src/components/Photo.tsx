@@ -10,6 +10,8 @@ interface PhotoProps {
   parallax?: boolean
   /** Flou volontaire (slide "Dans les airs ??"). */
   blurred?: boolean
+  /** Point focal custom (CSS object-position), pour les cadres qui rognent l'image. */
+  focus?: string
   className?: string
 }
 
@@ -23,7 +25,7 @@ function hashCode(str: string) {
  * Photo plein cadre : object-fit cover, zoom Ken Burns très lent,
  * parallaxe discrète, et dégradé élégant si le fichier n'existe pas encore.
  */
-export function Photo({ src, zoomOut = false, parallax = false, blurred = false, className }: PhotoProps) {
+export function Photo({ src, zoomOut = false, parallax = false, blurred = false, focus, className }: PhotoProps) {
   const [failed, setFailed] = useState(false)
   const reduceMotion = useReducedMotion()
 
@@ -63,7 +65,10 @@ export function Photo({ src, zoomOut = false, parallax = false, blurred = false,
             alt=""
             draggable={false}
             onError={() => setFailed(true)}
-            style={blurred ? { filter: 'blur(16px)', transform: 'scale(1.08)' } : undefined}
+            style={{
+              ...(blurred ? { filter: 'blur(16px)', transform: 'scale(1.08)' } : undefined),
+              ...(focus ? { objectPosition: focus } : undefined),
+            }}
           />
         )}
       </motion.div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Photo } from './Photo'
+import { focusFor } from '../data/photoFocus'
 
 interface PhotoCycleProps {
   images: string[]
@@ -50,6 +51,7 @@ export function PhotoCycle({ images, interval = 5, offset = 0, zoomSeed = 0, par
           src={images[index]}
           zoomOut={(index + zoomSeed) % 2 === 1}
           parallax={parallax}
+          focus={focusFor(images[index])}
         />
       </motion.div>
     </AnimatePresence>
