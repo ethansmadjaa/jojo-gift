@@ -263,34 +263,100 @@ export const slides: Slide[] = [
     final: 'où va aller Jojo ensuite ?',
   },
 
-  // ───────────────────── La révélation ─────────────────────
-
+  // ───────────────────── La fausse annonce ─────────────────────
   {
-    kind: 'chapter',
-    id: 'jojo-france',
-    title: 'Jojo en France 🇫🇷',
-    images: [],
-    emoji: '🇫🇷',
-    palette: 'ciel',
+    kind: 'noir',
+    id: 'annonce-fake',
+    lines: ['Bon.', 'J’ai réfléchi.', 'Je t’emmène…', '*en Antarctique.*'],
+    final: 'Trois semaines. Départ vendredi.',
   },
 
   {
-    kind: 'chapter',
-    id: 'jojo-annecy',
-    title: 'Jojo à Annecy',
-    images: [],
-    emoji: '⛵',
-    palette: 'menthe',
+    kind: 'noir',
+    id: 'detail-absurde',
+    lines: [
+      'Petit détail.',
+      'Il fait *-40°C*.',
+      'Et le trajet dure *deux jours*.',
+      'En bateau.',
+      'Sans wifi.',
+    ],
+  },
+
+  // ───────────────────── Le twist ─────────────────────
+  {
+    kind: 'noir',
+    id: 'twist',
+    silence: true,
+    lines: ['…'],
+    final: 'Mais non, c’est pas vrai.',
+  },
+
+  {
+    kind: 'noir',
+    id: 'rassure-1',
+    lines: ['Attends.', 'Respire.'],
+  },
+
+  {
+    kind: 'noir',
+    id: 'rassure-2',
+    lines: ['C’est un peu plus proche.', 'Et un peu plus chaud.'],
+  },
+
+  // ───────────────────── La révélation, en mode running gag ─────────────────────
+
+  {
+    kind: 'noir',
+    id: 'reveal-1',
+    lines: ['Ok c’est bon j’arrête de te faire mariner.'],
+    final: 'On va en France. 🇫🇷',
+  },
+
+  {
+    kind: 'noir',
+    id: 'reveal-2',
+    lines: ['Alors oui je sais.', '“La France, super Ethan.”'],
+    final: 'Laisse-moi finir.',
   },
 
   {
     kind: 'chapter',
     id: 'jojo-montagne',
     title: 'Jojo à la montagne',
-    caption: 'Ça commence à devenir intéressant…',
-    images: [],
+    caption: 'Une petite rando tranquille, un beau point de vue…',
+    images: photosOf('slide16b_jojo_montagne_reveal'),
     emoji: '🏔️',
     palette: 'creme',
+  },
+
+  {
+    kind: 'noir',
+    id: 'reveal-3',
+    lines: ['Le point de vue, oui.', 'La randonnée…', '*disons qu’on va la sauter.*'],
+  },
+
+  {
+    kind: 'chapter',
+    id: 'jojo-annecy',
+    title: 'Jojo à Annecy',
+    caption: 'Le lac, les Alpes, une glace, un petit tour en pédalo…',
+    images: photosOf('slide16c_jojo_annecy_reveal'),
+    emoji: '⛵',
+    palette: 'menthe',
+  },
+
+  {
+    kind: 'noir',
+    id: 'reveal-4',
+    lines: ['Bon d’accord.', 'Il n’y aura pas de pédalo.'],
+  },
+
+  {
+    kind: 'noir',
+    id: 'reveal-5',
+    lines: ['Parce qu’en fait', 'on va y aller un peu plus vite que prévu.'],
+    final: 'Beaucoup plus vite.',
   },
 
   // La photo de parapente, floutée pour le suspense…
