@@ -44,10 +44,10 @@ export const slides: Slide[] = [
     id: 'les-gens',
     images: photosOf('slide03_aime_les_gens'),
     lines: [
-      '*21 ans* que tu aimes les gens plus fort que presque n’importe qui.',
-      'Ta famille.',
-      'Tes amis.',
-      'Moi.',
+      '*21 ans* que tu ammenes la joie partout où tu passes.',
+      'avec ta famille.',
+      'avec tes amis.',
+      'avec moi.',
     ],
   },
 
