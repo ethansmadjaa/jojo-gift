@@ -56,7 +56,7 @@ export const slidePhotos = {
     "/slides/cover.jpg"
   ],
   "slide08_jojo_travaille": [
-    "/slides/img_5873.jpg"
+    "/slides/image.jpg"
   ],
   "slide09_jojo_copines": [
     "/slides/img_1680.jpg"
@@ -82,23 +82,30 @@ export const slidePhotos = {
     "/slides/img_9492.jpg",
     "/slides/img_9982.jpg"
   ],
-  "slide11_jojo_amerique_sud": [
-    "/slides/img_4479.jpg"
+  "slide11_jojo_dort_partout": [
+    "/slides/img_1067.jpg",
+    "/slides/img_1782.jpg",
+    "/slides/img_4964.jpg",
+    "/slides/img_8145.jpg",
+    "/slides/img_9959.jpg"
   ],
   "slide12_jojo_maman": [
     "/slides/img_6006.jpg"
   ],
   "slide13_jojo_rigole": [
-    "/slides/img_2079.jpg",
-    "/slides/img_3912.jpg",
-    "/slides/img_4991.jpg",
-    "/slides/img_9787.jpg"
+    "/slides/ce63fa1b-aadf-4e76-95f4-32d89ca175e6.jpg",
+    "/slides/img_5644.jpg",
+    "/slides/img_5743.jpg",
+    "/slides/img_6677.jpg",
+    "/slides/img_6930.jpg",
+    "/slides/img_8015.jpg",
+    "/slides/img_9232.jpg"
   ],
   "slide14_jojo_ferme": [
-    "/slides/img_5874.jpg"
+    "/slides/slide14_jojo_ferme-image.jpg"
   ],
   "slide15_jojo_elysee": [
-    "/slides/img_5875.jpg"
+    "/slides/slide15_jojo_elysee-image.jpg"
   ],
   "slide16_jojo_vacances": [
     "/slides/img_2278.jpg",
@@ -109,6 +116,12 @@ export const slidePhotos = {
     "/slides/img_5312.jpg",
     "/slides/img_9878.jpg"
   ],
+  "slide16b_jojo_montagne_reveal": [
+    "/slides/jojo_montagne_reveal.jpg"
+  ],
+  "slide16c_jojo_annecy_reveal": [
+    "/slides/jojo_annecy_reveal.jpg"
+  ],
   "slide17_jojo_soleil": [
     "/slides/img_4439.jpg",
     "/slides/img_4472.jpg",
@@ -117,34 +130,38 @@ export const slidePhotos = {
     "/slides/img_9868.jpg",
     "/slides/img_9878.jpg"
   ],
+  "slide18_jojo_pluie": [
+    "/slides/slide18_jojo_pluie-image.jpg"
+  ],
   "slide19_jojo_sport": [
     "/slides/img_5291.jpg"
   ],
   "slide20_jojo_fashion": [
-    "/slides/137f0741-fbf2-4718-af1f-dc6df1439206.jpg",
-    "/slides/img_1547.jpg",
+    "/slides/img_2278 2.jpg",
     "/slides/img_9707.jpg",
-    "/slides/img_9868.jpg",
-    "/slides/cover.jpg"
+    "/slides/img_9844.jpg",
+    "/slides/img_9916 2.jpg"
   ],
   "slide21_jojo_aventure": [
-    "/slides/img_3874.jpg",
-    "/slides/img_3912.jpg",
-    "/slides/img_4342.jpg",
-    "/slides/img_4881.jpg",
-    "/slides/img_4991.jpg"
+    "/slides/img_2306.jpg",
+    "/slides/img_4226.jpg",
+    "/slides/img_4426.jpg",
+    "/slides/img_4652.jpg"
   ],
   "slide22_jojo_gourmande": [
-    "/slides/0fd30d4a-a89c-4e73-872c-888c86d9555e.jpg",
-    "/slides/img_1680.jpg",
-    "/slides/img_2092.jpg",
-    "/slides/img_5191.jpg",
-    "/slides/img_9225.jpg",
-    "/slides/img_9492.jpg"
+    "/slides/4845ebf5-d62b-4773-8fc2-dcc43f80296c 2.jpg",
+    "/slides/img_2091.jpg",
+    "/slides/img_2100.jpg",
+    "/slides/img_3909.jpg",
+    "/slides/img_4881 2.jpg",
+    "/slides/img_4944.jpg",
+    "/slides/img_5194.jpg",
+    "/slides/img_5246.jpg",
+    "/slides/img_5424.jpg",
+    "/slides/img_5613.jpg"
   ],
   "slide23_jojo_partout": [
     "/slides/919a3a51-ef64-4eb6-b45e-e377e7aa615a.jpg",
-    "/slides/img_1547.jpg",
     "/slides/img_1551.jpg",
     "/slides/img_2079.jpg",
     "/slides/img_3874.jpg",
@@ -159,7 +176,6 @@ export const slidePhotos = {
     "/slides/img_9707.jpg",
     "/slides/img_9787.jpg",
     "/slides/img_9868.jpg",
-    "/slides/img_9878.jpg",
     "/slides/img_9982.jpg",
     "/slides/cover.jpg"
   ],
