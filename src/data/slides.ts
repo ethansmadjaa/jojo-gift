@@ -207,7 +207,7 @@ export const slides: Slide[] = [
     kind: 'chapter',
     id: 'jojo-pluie',
     title: 'Jojo sous la pluie',
-    images: [],
+    images: photosOf('slide18_jojo_pluie'),
     emoji: '☔',
     palette: 'ciel',
   },
