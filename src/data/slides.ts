@@ -147,9 +147,11 @@ export const slides: Slide[] = [
 
   {
     kind: 'chapter',
-    id: 'jojo-amerique-du-sud',
-    title: 'Jojo en Amérique du Sud',
-    images: photosOf('slide11_jojo_amerique_sud'),
+    id: 'jojo-dort-partout',
+    title: 'Jojo s’endort partout',
+    note: '(Voiture, plage, canapé… un vrai talent.)',
+    images: photosOf('slide11_jojo_dort_partout'),
+    emoji: '😴',
     palette: 'menthe',
   },
 
